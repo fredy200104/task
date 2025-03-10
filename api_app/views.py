@@ -47,3 +47,8 @@ class Prestamo(models.Model):
 
     def __str__(self):
         return f"{self.miembro} - {self.libro}"
+
+autor = models.ForeignKey(Autor, on_delete=models.CASCADE, related_name='libros')
+editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE, related_name='libros')
+miembro = models.ForeignKey(Miembro, on_delete=models.CASCADE, related_name='prestamos')
+libro = models.ForeignKey(Libro, on_delete=models.CASCADE, related_name='prestamos')
